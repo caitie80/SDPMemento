@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+
+class Movie {
+-name: String
+-genre: String
+-runtimeInMinutes: int
+
++getName(): String
++setName(String): void
++getGenre(): String
++setGenre(String): void
++getRuntime(): int
++setRuntime(int): void
+}
+
+class MoviePlayer {
+-status: Status
+-currentPlayTime: int
+
++setStatus(Status):void
++getStatus():Status
++setMovie(Movie):void
++getMovie():Movie
++getCurrentPlayTime(): int
++setCurrentPlayTime(int): void
+}
+
+Enum Status{
+PLAYING
+PAUSED
+}
+
+MoviePlayer --> Movie
+
+@enduml
