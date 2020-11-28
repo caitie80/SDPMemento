@@ -1,10 +1,11 @@
-public class Movie implements Video{
-
+public class Episode implements Video{
     private String name;
     private String genre;
+    private int season;
+    private int episodeNo;
     private int runtimeInMinutes;
 
-    public Movie() {
+    public Episode() {
         name = null;
         genre = null;
         runtimeInMinutes = 0;
@@ -35,4 +36,12 @@ public class Movie implements Video{
         this.runtimeInMinutes = runtimeInMinutes;
     }
 
+    public String getEpisode(){
+        return "Season " + this.season + ", Episode " + this.episodeNo;
+    }
+
+    public void setEpisode(int season, int episodeNo){
+        this.season = season;
+        this.episodeNo = episodeNo;
+    }
 }

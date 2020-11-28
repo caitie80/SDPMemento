@@ -3,11 +3,8 @@ skinparam classAttributeIconSize 0
 
 class Client
 
-class Movie {
--name: String
--genre: String
--runtimeInMinutes: int
 
+interface Video {
 +getName(): String
 +setName(String): void
 +getGenre(): String
@@ -16,14 +13,47 @@ class Movie {
 +setRuntime(int): void
 }
 
-class MoviePlayer {
+class Movie {
+-name: String
+-genre: String
+-runtimeInMinutes: int
+
++Movie()
++getName(): String
++setName(String): void
++getGenre(): String
++setGenre(String): void
++getRuntime(): int
++setRuntime(int): void
+}
+
+class Episode {
+-name: String
+-genre: String
+-season: int
+-episodeNo: int
+-runtimeInMinutes: int
+
++Episode()
++getName(): String
++setName(String): void
++getGenre(): String
++setGenre(String): void
++getEpisode(): String
++getRuntime(): int
++setRuntime(int): void
++setEpisode(int, int): void
+}
+
+class VideoPlayer {
 -status: Status
 -currentPlayTime: int
 
++VideoPlayer(Video)
 +setStatus(Status):void
 +getStatus():Status
-+setMovie(Movie):void
-+getMovie():Movie
++setVideo(Video):void
++getVideo():Video
 +getCurrentPlayTime(): int
 +setCurrentPlayTime(int): void
 }
@@ -33,6 +63,9 @@ PLAYING
 PAUSED
 }
 
-MoviePlayer --> Movie
+Video <|... Movie
+Video <|... Episode
+
+VideoPlayer --> Video
 
 @enduml

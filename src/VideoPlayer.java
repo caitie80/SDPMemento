@@ -1,20 +1,20 @@
-public class MoviePlayer {
-    private Movie movie;
+public class VideoPlayer {
+    private Video video;
     private Status status;
     private int currentPlayTime;
 
-    public MoviePlayer(Movie movie) {
-        this.movie = movie;
-        status = Status.PAUSED;
+    public VideoPlayer(Movie video) {
+        this.video = video;
+        status = Status.PLAYING;
         currentPlayTime = 0;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setVideo(Video video) {
+        this.video = video;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public Video getVideo() {
+        return video;
     }
 
     public void setStatus(Status status) {
