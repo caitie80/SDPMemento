@@ -13,8 +13,8 @@ public class Client {
         System.out.println("Current play time: " + vp.getCurrentPlayTime() + " minutes");
         System.out.println("Current status: " + vp.getStatus());
 
-        System.out.println("\nChanging video...\n");
-
+        System.out.println("\nChanging video, saving...\n");
+        VideoPlayerMemento memento = vp.getCurrentState();
 
         Episode theCrown = new Episode();
         theCrown.setName("The Crown");
@@ -25,6 +25,12 @@ public class Client {
         vp.setVideo(theCrown);
         vp.setStatus(Status.PAUSED);
         vp.setCurrentPlayTime(20);
+        System.out.println("Current video: " + vp.getVideo().getName());
+        System.out.println("Current play time: " + vp.getCurrentPlayTime() + " minutes");
+        System.out.println("Current status: " + vp.getStatus());
+
+        System.out.println("\nChanging video...\n");
+        vp.restoreState(memento);
         System.out.println("Current video: " + vp.getVideo().getName());
         System.out.println("Current play time: " + vp.getCurrentPlayTime() + " minutes");
         System.out.println("Current status: " + vp.getStatus());

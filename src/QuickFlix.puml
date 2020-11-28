@@ -56,6 +56,15 @@ class VideoPlayer {
 +getVideo():Video
 +getCurrentPlayTime(): int
 +setCurrentPlayTime(int): void
++getCurrentState(): VideoPlayerMemento
++restoreState(VideoPlayerMemento): void
+}
+
+class VideoPlayerMemento {
+-videoPlayer: VideoPlayer
+
++getVideoPlayer(): VideoPlayer
++setVideoPlayer(VideoPlayer): void
 }
 
 Enum Status{
@@ -66,6 +75,7 @@ PAUSED
 Video <|... Movie
 Video <|... Episode
 
-VideoPlayer --> Video
+VideoPlayer ..> Video
+VideoPlayerMemento .> VideoPlayer
 
 @enduml
